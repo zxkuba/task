@@ -25,6 +25,7 @@ public class TrelloController {
            trelloBoards.stream()
                    .filter(s->s.getName().contains("Kodilla"))
                    .forEach(trelloBoardDto ->{
+                       System.out.println(trelloBoardDto.getId());
                        trelloBoardDto.getLists().forEach(trelloListDto ->
                                System.out.println(trelloListDto.getName()+trelloListDto.getId()+trelloListDto.isClosed()));
                    });
