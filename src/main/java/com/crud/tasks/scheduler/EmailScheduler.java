@@ -22,13 +22,21 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
+    private String checkCount(){
+        if(taskRepository.count() > 1) {
+            return "tasks";
+        }else{
+            return "task";
+        }
+    }
+
     @Scheduled(cron = "0 0 10 * * *")
     public void sendInformationEmail(){
         long size = taskRepository.count();
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + "tasks",
+                "Currently in database you got: " + size + checkCount(),
                 null
         ));
     }
