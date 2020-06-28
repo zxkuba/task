@@ -73,24 +73,23 @@ public class TaskControllerTest {
                 .andExpect(jsonPath("$", hasSize(1)));
     }
 
-    @Test
+    /*@Test
     public void shouldFetchTask() throws Exception{
         //Given
-        //Task task = new Task(1l,"test task", "test desc");
+        Task task = new Task(1l,"test task", "test desc");
 
-        //TaskDto taskDto = new TaskDto(1L, "test task", "test desc");
+        TaskDto taskDto = new TaskDto(1L, "test task", "test desc");
         
-        //when(service.getTask(task.getId())).thenReturn(Optional.of(task));
-        //when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
+        when(service.getTask(task.getId())).thenReturn(Optional.of(task));
+        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
         //When & Then
-        //mockMvc.perform(get("/v1/task/getTask")
-                //.contentType(MediaType.APPLICATION_JSON))
-
+        mockMvc.perform(get("/v1/task/getTask")
+                .contentType(MediaType.APPLICATION_JSON))
                 //.andExpect(status().isOk())
-                //.andExpect(jsonPath("$.id", is((1L))))
-                //.andExpect(jsonPath("$.name", is("test task")))
-                //.andExpect(jsonPath("$.description", is("test desc")));
-    }
+                .andExpect(jsonPath("$.id", is((1L))))
+                .andExpect(jsonPath("$.name", is("test task")))
+                .andExpect(jsonPath("$.description", is("test desc")));
+    }*/
 
     @Test
     public void shouldCreateTask() throws Exception{
