@@ -1,19 +1,13 @@
 package com.crud.tasks.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
-
 import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
-
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -30,17 +24,14 @@ public class TaskController {
         return taskMapper.mapToTaskDtoList(service.getAllTasks());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "{taskId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{taskId}")
     public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException{
-
         return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{taskId}")
     public void deleteTask(@PathVariable Long taskId){
-
         service.delete(taskId);
-
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
