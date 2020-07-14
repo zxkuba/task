@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My welcome page</title>
+</head>>
+<body>
+
+    <h1>First impression of my page</h1>
+<span th:text="${varible}"></span>
+<br>
+    <span th:text="${two + multiple + two + equal}"></span>
+    <span th:text="${two} * ${two}"></span>
+<br>
+    <span th:text="${two + multiple + two + add + two + equal}"></span>
+    <span th:text="${two} * ${two} + ${two}"></span>
+<br>
+    <span th:text="${two + subtract + two + multiple + two + equal}"></span>
+    <span th:text="${two} - (${two} * ${two})"></span>
+
+</body>
+</html>
